@@ -205,7 +205,8 @@
     @csrf
     <label for="profile-picture-input">
       @if (Auth::user() && Auth::user()->profile_picture)
-        <img id="profile-picture" src="{{ asset('storage/profile_pictures/' . Auth::user()->profile_picture) }}" alt="Profile Picture">
+        <img id="profile-picture" src="{{ asset('storage/profile_pictures/' . Auth::user()->profile_picture) }}?v={{ time() }}" alt="Profile Picture">
+
       @else
       <img id="profile-picture" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="Default Profile Picture">   
          @endif
@@ -218,17 +219,19 @@
 
 <script>
   const profilePictureInput = document.getElementById('profile-picture-input');
-  const updateProfilePictureForm = document.getElementById('update-profile-picture-form');
+const updateProfilePictureForm = document.getElementById('update-profile-picture-form');
 
-  // Trigger the file input field when the user clicks the profile picture
-  document.getElementById('profile-picture').addEventListener('click', function() {
-    profilePictureInput.click();
-  });
+// Trigger the file input field when the user clicks the profile picture
+document.getElementById('profile-picture').addEventListener('click', function() {
+  profilePictureInput.click();
+});
 
-  // Submit the form when the user selects a file
-  profilePictureInput.addEventListener('change', function() {
-    updateProfilePictureForm.submit();
-  });
+// Submit the form when the user selects a file
+profilePictureInput.addEventListener('change', function(event) {
+  event.preventDefault();
+  updateProfilePictureForm.submit();
+});
+
 </script>
 
         <br>

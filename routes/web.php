@@ -34,14 +34,7 @@ Route::post('authenticate',[LoginController::class, 'authenticate']);
 
 Route::middleware(['auth'])->get('/userinfo', 'RegisterController@userinfo');
 
-
-
-
-
-
 Route::middleware(['auth'])->post('/profile/update-picture', [ProfileController::class, 'updatePicture'])->name('profile.update-picture');
-
-
 
 Route::get('/profile', function () {
     return view('profile');

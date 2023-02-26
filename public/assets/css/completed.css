@@ -12,3 +12,15 @@ body{background-color: #f9f9fa}.flex{-webkit-box-flex: 1;-ms-flex: 1 1 auto;flex
   font-size: 12px;
   border-radius: 5px;
 }
+
+.bcks {
+  background-color: #570e9b;
+  border: round;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 5px;
+}
